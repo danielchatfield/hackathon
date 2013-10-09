@@ -2,4 +2,4 @@ import libs
 
 from frontend import app
 
-app.run()
+app.run(debug=True)
