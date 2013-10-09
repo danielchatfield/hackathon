@@ -22,6 +22,7 @@ def parseData(lon, lat, radius):
 	events=[]
 	for x in range(10):
 		try:
+			id = parsedXML[x].text
 			descrip =  parsedXML[x][5][5].text
 			urgency = parsedXML[x][5][2].text
 			severity = parsedXML[x][5][3].text
@@ -30,7 +31,7 @@ def parseData(lon, lat, radius):
 			road = parsedXML[x][5][9][5].text
 			direction = parsedXML[x][5][9][4].text
 			intersection = parsedXML[x][5][9][1].text
-			events.append({'descrip': descrip, 'urgency' : urgency, 'severity': severity, 'certainty':certainty, 'latlong' : latlong, 'road': road, 'direction': direction, 'intersection' : intersection})
+			events.append({'id': id, 'descrip': descrip, 'urgency' : urgency, 'severity': severity, 'certainty':certainty, 'latlong' : latlong, 'road': road, 'direction': direction, 'intersection' : intersection})
 		except IndexError:
 			pass
 		return events
