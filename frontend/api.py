@@ -16,7 +16,7 @@ def location():
 def LocationWorker(coordinates):
 	events = []
 	for coords in coordinates:
-		someEvents = frontend.stride.parseData(float(coords[0]), float(coords[1]), 100000)
+		someEvents = frontend.stride.parseData(float(coords[0]), float(coords[1]), 50000)
 		events = events + someEvents
 	seenEvents = set()
 	uniqueEvents= []
