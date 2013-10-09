@@ -1,0 +1,30 @@
+application: stride-hackathon
+version: live
+
+module: default
+
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+- url: /assets
+  static_dir: assets
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /robots\.txt
+  static_files: robots.txt
+  upload: robots\.txt
+
+- url: .*
+  script: frontend.app
+  secure: optional
+
+inbound_services:
+- warmup
+
+builtins:
+- deferred: on
