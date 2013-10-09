@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page %}
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+        	center: new google.maps.LatLng(52.211150, 0.091955),
+        	zoom: 15,
+        	mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map($('.map-canvas')[0], mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div class="map-canvas"/>
+{% endblock %}
