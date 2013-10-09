@@ -11,9 +11,7 @@ def location():
 	#print payload
 	#payload = [['52.204424', '0.105718'], ['52.211104','0.106512'], ['52.212629','0.091792'], ['52.210854','0.091578']]
 	uniqueEvents = LocationWorker(payload)
-	for event in uniqueEvents:
-		 message = '<p>There is a ' + event['severity'] + ' problem on the ' + event['road'] +  ' ' + event['direction'] + '.'  + '</p><p>' + event['descrip'] + '</p>'
-		 output = output + message + '<br />'
+	output = json.dumps(uniqueEvents)
 	return output
 def LocationWorker(coordinates):
 	for coords in coordinates:
