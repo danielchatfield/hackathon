@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 
 {% block page %}
-<script type="text/javascript">
-    function initialize() {
-        var mapOptions = {
-        	center: new google.maps.LatLng(52.211150, 0.091955),
-        	zoom: 15,
-        	mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map($('.map-canvas')[0], mapOptions);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<div class="map-canvas"/>
+<script type="text/javascript" src="/assets/route.js"></script>
+<div class="route-options block-form">
+	<select class="travel-mode">
+		<option selected value="BICYCLING">Bicycle</option>
+		<option value="DRIVING">Car</option>
+	</select>
+	<fieldset>
+		<label>Start address</label>
+		<input class="start" type="text" value="Robinson College Grange Road Cambridge CB3 9AN" />
+	</fieldset>
+	<fieldset>
+		<label>End address</label>
+		<input class="end" type="text" value="Computer Laboratory  William Gates Building  15 JJ Thomson Avenue  Cambridge CB3 0FD " />
+	</fieldset>
+	<button class="calculate">Calculate</button>
+	<div class="directions-panel"></div>
+</div>
+<div class="map-canvas"></div>
 {% endblock %}
