@@ -8,7 +8,7 @@ def output_text(msg):
 		sys.stdout.write ( '%s' % char)
 		sys.stdout.flush()
 		time.sleep(0.05)
-	print ''
+	#print ''
 
 def fetchURL(lat,lon,radius):
 	payload = {'near': str(lat) + ',' +  str(lon) + ',' +  str(radius)}

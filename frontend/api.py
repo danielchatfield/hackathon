@@ -30,5 +30,5 @@ def LocationWorker(coordinates):
 
 @app.route('/test')
 def test():
-	print location()
+	#print location()
 	return 'qwerty'
