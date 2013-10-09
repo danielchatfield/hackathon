@@ -1,6 +1,6 @@
 import frontend.stride
 from frontend import app, stride
-from flask import request
+from flask import request, json
 from collections import OrderedDict
 
 @app.route('/locationAPI', methods=['POST'])
@@ -14,6 +14,7 @@ def location():
 	output = json.dumps(uniqueEvents)
 	return output
 def LocationWorker(coordinates):
+	events = []
 	for coords in coordinates:
 		someEvents = frontend.stride.parseData(float(coords[0]), float(coords[1]), 804.7)
 		events = events + someEvents
