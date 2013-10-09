@@ -1,3 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__),'libs'))
+print sys.path
+import requests
 from xml.dom import minidom
 
 def createURL(lat,lon,radius):
@@ -6,4 +10,5 @@ def createURL(lat,lon,radius):
 	return requesturl
 
 URL = createURL(52.211604,0.09166,10000)
-print URL
+
+r = requests.get(URL, auth=('7b399134-f740-4432-9a3e-f6d711473558'))
