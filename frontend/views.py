@@ -1,5 +1,5 @@
 from frontend import app
-from flask import render_template
+from flask import render_template, request
 
 @app.route('/')
 def home():
@@ -9,3 +9,4 @@ def home():
 @app.route('/route')
 def route():
 	return render_template('route.html')
+
