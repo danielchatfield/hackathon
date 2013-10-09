@@ -432,6 +432,7 @@ function getIssues() {
 
 $(document).ready(function(){
 	$('.calculate').click(calcRoute);
+  $('.get-issues').click(getIssues);
 })
 
 
