@@ -9,8 +9,17 @@ def fetchURL(lat,lon,radius):
 	r = requests.get(requesturl, params=payload, auth=('7b399134-f740-4432-9a3e-f6d711473558', ''))
 	return r
 
-data = fetchURL(52.211604,0.09166,1000)
+data = fetchURL(52.211604,0.09166,1000000)
 parsedXML = ET.fromstring(data.text)
-for child in parsedXML.iter('description'):
-	print child.text
-
+#for child in parsedXML.iter('description'):
+#	print child.text
+events=[]
+for x in range(10):
+	try:
+		descrip =  parsedXML[x][5][5].text
+		urgency = parsedXML[x][5][2].text
+		severity = parsedXML[x][5][3].text
+		certainty = parsedXML[x][5][4].text
+		events[x] = {'descrip': descrip, 'urgency' : urgency, 'severity': severity, 'certainty':certainty}
+	except IndexError:
+		pass
